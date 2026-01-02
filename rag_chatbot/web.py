@@ -87,7 +87,7 @@ if not api_key:
     print("Get a key at: https://console.anthropic.com/api-keys")
     print("=" * 60 + "\n")
 
-# Initialize vector store (lazy load on first query if needed)
+# Initialize vector store and client
 vector_store = None
 client = None
 
@@ -118,9 +118,12 @@ def respond(message: str, history: list) -> str:
 
     # Build conversation history for Claude
     messages = []
-    for user_msg, assistant_msg in history:
-        messages.append({"role": "user", "content": user_msg})
-        messages.append({"role": "assistant", "content": assistant_msg})
+    for h in history:
+        if isinstance(h, dict):
+            messages.append({"role": h["role"], "content": h["content"]})
+        elif isinstance(h, (list, tuple)) and len(h) == 2:
+            messages.append({"role": "user", "content": h[0]})
+            messages.append({"role": "assistant", "content": h[1]})
 
     # Add current question with context
     user_message = f"""Based on the following textbook content, please answer the student's question.
@@ -148,62 +151,29 @@ Please provide a clear, educational response based on the textbook content above
 
 # Example questions for students
 EXAMPLES = [
-    "What is DNA and what is its structure?",
-    "Explain Mendel's laws of inheritance",
-    "How does mRNA transcription work?",
-    "What is the difference between mitosis and meiosis?",
-    "What causes genetic mutations?",
-    "How do dominant and recessive alleles work?",
+    ["What is DNA and what is its structure?"],
+    ["Explain Mendel's laws of inheritance"],
+    ["How does mRNA transcription work?"],
+    ["What is the difference between mitosis and meiosis?"],
+    ["What causes genetic mutations?"],
 ]
-
-# Create the Gradio interface
-with gr.Blocks(
-    title="Genetics Tutor",
-    theme=gr.themes.Soft(primary_hue="emerald"),
-) as demo:
-    gr.Markdown(
-        """
-        # 🧬 Genetics Tutor
-
-        Ask me anything about genetics! I have access to multiple textbooks including
-        OpenStax Biology, Online Open Genetics, and more.
-
-        *Powered by RAG + Claude*
-        """
-    )
-
-    chatbot = gr.ChatInterface(
-        fn=respond,
-        examples=EXAMPLES,
-        cache_examples=False,
-        chatbot=gr.Chatbot(height=500, placeholder="Ask a genetics question..."),
-        textbox=gr.Textbox(
-            placeholder="What would you like to know about genetics?",
-            container=False,
-            scale=7,
-        ),
-        retry_btn="Retry",
-        undo_btn="Undo",
-        clear_btn="Clear",
-    )
-
-    gr.Markdown(
-        """
-        ---
-        **Sources:** OpenStax Biology 2e (CC BY 4.0) • Online Open Genetics (CC BY-SA 3.0) •
-        NIGMS "The New Genetics" (Public Domain) • Schleif "Genetics and Molecular Biology"
-        """
-    )
 
 
 def main():
     """Launch the web interface."""
     initialize()
+
+    demo = gr.ChatInterface(
+        fn=respond,
+        title="🧬 Genetics Tutor",
+        description="Ask me anything about genetics! I have access to multiple textbooks including OpenStax Biology, Online Open Genetics, and more.\n\n*Powered by RAG + Claude*",
+        examples=EXAMPLES,
+    )
+
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
         share=False,
-        show_error=True,
     )
 
 
