@@ -4,7 +4,7 @@ Ingest genetics textbook content into ChromaDB vector store.
 Uses sentence-transformers for local embeddings (no API key needed).
 """
 
-import os
+import platform
 from pathlib import Path
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -22,6 +22,13 @@ VECTOR_STORE_DIR = Path(__file__).parent / "vector_store"
 
 # Embedding model - runs locally, no API key needed
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+
+
+def get_device() -> str:
+    """Detect the best available device for embeddings."""
+    if platform.system() == "Darwin" and platform.processor() == "arm":
+        return "mps"  # Apple Silicon
+    return "cpu"
 
 def load_documents() -> list[Document]:
     """Load all text files from extracted_text directory."""
@@ -68,9 +75,11 @@ def create_vector_store(chunks: list[Document]) -> Chroma:
     console.print("  (This may take a few minutes on first run)")
 
     # Use local embeddings - no API key needed
+    device = get_device()
+    console.print(f"  Using device: {device}")
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL,
-        model_kwargs={"device": "mps"},  # Use Apple Silicon GPU
+        model_kwargs={"device": device},
         encode_kwargs={"normalize_embeddings": True},
     )
 

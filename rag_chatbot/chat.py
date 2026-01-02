@@ -5,19 +5,24 @@ Uses Claude API for responses and local embeddings for retrieval.
 """
 
 import os
+import platform
 from pathlib import Path
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
-from rich.prompt import Prompt
+from rich.prompt import Prompt, Confirm
 
 console = Console()
 
 # Paths
+ROOT_DIR = Path(__file__).parent.parent
 VECTOR_STORE_DIR = Path(__file__).parent / "vector_store"
+ENV_FILE = ROOT_DIR / ".env"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 # System prompt for the genetics tutor
@@ -38,15 +43,54 @@ When answering questions:
 
 Be encouraging and supportive - you're helping students learn!"""
 
+
+def get_device() -> str:
+    """Detect the best available device for embeddings."""
+    if platform.system() == "Darwin" and platform.processor() == "arm":
+        return "mps"  # Apple Silicon
+    # Could add CUDA detection here
+    return "cpu"
+
+
+def get_api_key() -> str:
+    """Get API key from environment, .env file, or prompt user."""
+    # Load from .env if exists
+    load_dotenv(ENV_FILE)
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+
+    if api_key:
+        return api_key
+
+    # Prompt user for API key
+    console.print("[yellow]No Anthropic API key found.[/]")
+    console.print("Get one at: [link=https://console.anthropic.com/api-keys]https://console.anthropic.com/api-keys[/]\n")
+
+    api_key = Prompt.ask("[bold]Enter your Anthropic API key[/]", password=True)
+
+    if not api_key:
+        console.print("[red]API key is required.[/]")
+        raise SystemExit(1)
+
+    # Offer to save it
+    if Confirm.ask("Save API key to .env file for future use?", default=True):
+        ENV_FILE.write_text(f"ANTHROPIC_API_KEY={api_key}\n")
+        console.print(f"[green]✓ Saved to {ENV_FILE}[/]\n")
+
+    return api_key
+
+
 def load_vector_store() -> Chroma:
     """Load the existing vector store."""
     if not VECTOR_STORE_DIR.exists():
-        console.print("[red]Vector store not found! Run ingest.py first.[/]")
+        console.print("[red]Vector store not found![/]")
+        console.print("Run: [bold]uv run genetics-ingest[/] to build it first.")
         raise SystemExit(1)
 
+    device = get_device()
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL,
-        model_kwargs={"device": "mps"},
+        model_kwargs={"device": device},
         encode_kwargs={"normalize_embeddings": True},
     )
 
@@ -55,6 +99,7 @@ def load_vector_store() -> Chroma:
         embedding_function=embeddings,
         collection_name="genetics_knowledge",
     )
+
 
 def retrieve_context(vector_store: Chroma, query: str, k: int = 5) -> str:
     """Retrieve relevant context from the vector store."""
@@ -66,6 +111,7 @@ def retrieve_context(vector_store: Chroma, query: str, k: int = 5) -> str:
         context_parts.append(f"[Source: {source}]\n{doc.page_content}")
 
     return "\n\n---\n\n".join(context_parts)
+
 
 def chat_with_claude(client: Anthropic, messages: list, context: str, query: str) -> str:
     """Send query to Claude with retrieved context."""
@@ -93,6 +139,7 @@ Please provide a clear, educational response based on the textbook content above
 
     return assistant_message
 
+
 def main():
     console.print(Panel.fit(
         "[bold magenta]Genetics Tutor Chatbot[/]\n"
@@ -100,12 +147,8 @@ def main():
         border_style="magenta",
     ))
 
-    # Check for API key
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        console.print("[red]ANTHROPIC_API_KEY not set![/]")
-        console.print("Set it with: export ANTHROPIC_API_KEY='your-key-here'")
-        raise SystemExit(1)
+    # Get API key (prompts if not found)
+    api_key = get_api_key()
 
     # Load vector store
     console.print("[dim]Loading knowledge base...[/]")
@@ -149,6 +192,7 @@ def main():
         except KeyboardInterrupt:
             console.print("\n[dim]Goodbye![/]")
             break
+
 
 if __name__ == "__main__":
     main()
