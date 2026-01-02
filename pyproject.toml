@@ -15,9 +15,5 @@ dependencies = [
     "python-dotenv>=1.0.0",
 ]
 
-[project.scripts]
-genetics-tutor = "rag_chatbot.chat:main"
-genetics-ingest = "rag_chatbot.ingest:main"
-
 [tool.uv]
 dev-dependencies = []

@@ -13,10 +13,10 @@ git clone https://github.com/james-m-jordan/genetics-content.git
 cd genetics-content
 
 # Build the vector store (one-time, ~2 min)
-uv run genetics-ingest
+uv run python rag_chatbot/ingest.py
 
 # Start chatting!
-uv run genetics-tutor
+uv run python rag_chatbot/chat.py
 ```
 
 On first run, you'll be prompted to enter your Anthropic API key. Get one at [console.anthropic.com](https://console.anthropic.com/api-keys).
@@ -43,10 +43,10 @@ Extracted text from 4 open-source genetics textbooks:
 
 ```bash
 # Build/rebuild the vector store
-uv run genetics-ingest
+uv run python rag_chatbot/ingest.py
 
 # Start the chatbot
-uv run genetics-tutor
+uv run python rag_chatbot/chat.py
 ```
 
 ## Configuration
@@ -54,7 +54,7 @@ uv run genetics-tutor
 ### API Key
 Three ways to provide your Anthropic API key:
 
-1. **Interactive prompt** (easiest) - just run `uv run genetics-tutor`
+1. **Interactive prompt** (easiest) - just run the chatbot and enter when prompted
 2. **Environment variable**: `export ANTHROPIC_API_KEY=your-key`
 3. **`.env` file**: Create `.env` with `ANTHROPIC_API_KEY=your-key`
 
