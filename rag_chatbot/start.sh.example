@@ -1,0 +1,5 @@
+#!/bin/bash
+cd "$(dirname "$0")"
+source venv/bin/activate
+export ANTHROPIC_API_KEY='your-api-key-here'
+python chat.py

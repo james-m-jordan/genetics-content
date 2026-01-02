@@ -1,0 +1,27 @@
+# The Function of Genes
+Source: Online Open Genetics (Nickle & Barrette-Ng) - LibreTexts
+License: CC BY-SA 3.0
+
+## Historical Background
+
+### Garrod's Contribution (1908)
+A. Garrod described "inborn errors of metabolism" using alkaptonuria as an example, demonstrating how genetic defects lead to enzyme deficiency and disease phenotypes.
+
+### Beadle and Tatum's Hypothesis (1941)
+Over 40 years later, researchers Beadle and Tatum proposed the foundational "one gene, one enzyme (or protein)" hypothesis. This principle states that each of the enzymes that act in a biochemical pathway is encoded by a different gene. While exceptions exist today, the core concept remains valid: distinct genes typically produce proteins with unique catalytic, regulatory, or structural functions.
+
+## Experimental Model: Neurospora crassa
+
+The researchers selected a fungal mold because it offered practical advantages:
+
+- Prototrophic capability: The organism could synthesize its own amino acids on minimal medium (containing only minerals, simple sugars, and biotin)
+- Mutagenesis method: X-ray exposure randomly damaged DNA, creating mutations in different genes
+- Phenotypic screening: Scientists identified auxotrophic strains unable to grow on minimal medium but viable on complete, nutrient-supplemented medium
+
+## Genetic Screening Methodology
+
+Srb and Horowitz (1944) advanced this work by testing amino acids and biochemical intermediates to rescue auxotrophic strains. For arginine biosynthesis, they identified intermediates like ornithine and citrulline. By determining which compounds could restore growth to specific mutants, researchers could map mutations to particular enzymatic steps in the pathway.
+
+## Key Finding
+
+Different mutant classes showed distinct complementation patterns with pathway intermediates, revealing the sequential order of enzymatic reactions and demonstrating how genetic analysis using mutant screening could elucidate metabolic mechanisms.

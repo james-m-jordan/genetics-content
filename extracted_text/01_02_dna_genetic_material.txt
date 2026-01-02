@@ -1,0 +1,42 @@
+# DNA is the Genetic Material - Complete Text Content
+Source: Online Open Genetics (Nickle & Barrette-Ng) - LibreTexts
+License: CC BY-SA 3.0
+
+## Overview
+Early 20th-century biochemists questioned which cellular component served as genetic material. Proteins seemed promising candidates due to their abundance, diversity, and complexity. However, pivotal experiments demonstrated that DNA, not protein, carries genetic information.
+
+## Griffith's Transformation Experiment (1928)
+
+Microbiologists studied two Streptococcus pneumoniae strains. The R-strain produced rough colonies and was non-pathogenic. The S-strain was smooth and caused fatal infections in mice. Heat-treated S-strain cells proved harmless.
+
+Griffith discovered something remarkable: upon mixing 'heat-treated' S-strain cells together with some R-type bacteria (neither should kill the mice), the mice died and there were S-strain, pathogenic cells recoverable. This demonstrated that non-living S-strain components contained genetic information capable of transforming R-type cells into pathogenic S-type cells—a phenomenon termed transformation.
+
+## Avery, MacLeod and McCarty's Experiment (1944)
+
+These researchers systematically separated S-type cells into proteins, polysaccharides, lipids, and nucleic acids. Only nucleic acids from S-type cells could transform R-strains into smooth, pathogenic variants. Critically, when researchers treated extracts with DNase (an enzyme digesting DNA), transformation ability disappeared entirely. The team concluded that DNA was the genetic material, which in this case controlled the appearance (smooth or rough) and pathogenicity of the bacteria.
+
+## Hershey and Chase's Experiment (1952)
+
+Hershey and Chase investigated genetic transmission in T2 bacteriophage, a virus parasitizing Escherichia coli. The phage contained only protein and DNA—no other potential genetic material.
+
+The researchers cultured viruses in media containing radioactive phosphorus-32 (32P) or sulfur-35 (35S). These isotopes incorporated into DNA and proteins respectively. After infecting bacteria with radiolabeled viruses and removing external phage, results showed that infection with 32P labeled viruses (but not the 35S labeled viruses) resulted in radioactive bacteria. This definitively demonstrated DNA's role as the genetic blueprint.
+
+## Meselson and Stahl Experiment (1958)
+
+Watson and Crick's 1953 DNA model suggested three replication mechanisms:
+
+1. Semi-conservative: DNA strands separate; each serves as a template for synthesizing a new complementary strand
+2. Conservative: The entire duplex acts as template for synthesizing a completely new duplex
+3. Dispersive: Double helix strands break into units that reassemble with alternating segments from each original strand
+
+Meselson and Stahl tracked nitrogen isotopes through E. coli replication cycles. Nitrogen-14 (14N) is light; Nitrogen-15 (15N) is heavier and denser. Neither is radioactive.
+
+Starting with bacteria grown on 15N medium (producing dense DNA), they transferred cells to 14N medium. After one generation, DNA extracted and separated via CsCl density gradient showed a single band at intermediate density—inconsistent with conservative replication but consistent with semi-conservative and dispersive models.
+
+After a second replication cycle in 14N medium, two bands appeared: one at intermediate density and one at wholly 14N position. This result was inconsistent with the dispersive model and supported semi-conservative replication. The semi-conservative model is the currently accepted mechanism for DNA replication.
+
+## RNA and Protein as Genetic Material
+
+While DNA serves as genetic material for most organisms, notable exceptions exist. Several viruses use RNA as their genetic material, including SARS, influenza, hepatitis C, polio, and retroviruses like HIV-AIDS. These can be single or double-stranded and typically employ DNA at some lifecycle stage for RNA genome replication.
+
+Prions represent another exception—infectious agents transmitting disease through protein misfolding alone, without nucleic acids. Prion diseases include bovine spongiform encephalopathy ("mad cow disease") and Creutzfeldt–Jakob disease in humans. All known prion diseases act by altering the structure of the brain or other neural tissue and all are currently untreatable and ultimately fatal.

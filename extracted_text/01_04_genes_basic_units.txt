@@ -1,0 +1,25 @@
+# Genes as Basic Units of Inheritance
+Source: Online Open Genetics (Nickle & Barrette-Ng) - LibreTexts
+License: CC BY-SA 3.0
+
+## Historical Context
+
+Gregor Mendel's foundational work on heredity contradicted the previously accepted "blending inheritance" model, which proposed that hereditary material from both parents mixed irreversibly, like two paint colors combining.
+
+## Key Scientific Findings
+
+Mendel's experiments with pea plants revealed critical evidence against blending theory. A cross between pure breeding, white and purple peas (generation P) produced only progeny (generation F1) with purple flowers. Importantly, white flowers reappeared in the F2 generation when F1 plants were crossed together.
+
+This observation demonstrated that genetic factors controlling flower color remained discrete and separable—they did not permanently blend together.
+
+## Particulate Inheritance Model
+
+Mendel's work established an alternative theory: particulate inheritance, defined as heredity is the product of discrete factors that control independent traits. This framework became foundational to modern genetics.
+
+## Research Methodology
+
+Mendel employed rigorous scientific approaches: using well-characterized strains, repeating experiments multiple times, and maintaining detailed records—establishing standards for biological research that remain influential today.
+
+## Legacy
+
+The distinction between blending and particulate inheritance represents a pivotal conceptual shift that enabled the development of modern genetic science.

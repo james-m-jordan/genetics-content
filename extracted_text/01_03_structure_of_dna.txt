@@ -1,0 +1,25 @@
+# DNA Structure: Key Concepts
+Source: Online Open Genetics (Nickle & Barrette-Ng) - LibreTexts
+License: CC BY-SA 3.0
+
+## Historical Context
+
+Watson and Crick's groundbreaking work in the 1940s revealed DNA's architecture. They built upon existing knowledge about four nucleotide bases—adenine (A), cytosine (C), thymine (T), and guanine (G)—and incorporated crucial observations about base ratios.
+
+## Chargaff's Rules
+
+Erwin Chargaff discovered a fundamental pattern in DNA composition. His observations showed that the abundance of A was the same as T, and G was the same as C across nearly all DNA samples examined. This 1:1 pairing ratio proved essential to understanding DNA's structure and became a cornerstone of Watson and Crick's model.
+
+## The Double Helix Model
+
+The famous double helix structure features two complementary strands. Each strand contains bases bonded to a sugar-phosphate backbone. The strands run in opposite directions—a property called antiparallel orientation—with the 5' end of one strand adjacent to the 3' end of the other strand.
+
+### Key Structural Features
+
+Base pairing follows strict rules: A bonds exclusively with T, while G bonds exclusively with C, through hydrogen bonds. This complementary relationship allows each strand to serve as a template for synthesizing its counterpart.
+
+The helix exhibits a right-handed twist and contains two grooves—a major groove and a minor groove—created by the offset positioning of strands.
+
+## Significance for Genetics
+
+The complementary nature of DNA strands provides inherent redundancy crucial for accurate replication and repair mechanisms, establishing how this elegant molecule can preserve and transmit genetic information across generations.

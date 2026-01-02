@@ -1,0 +1,26 @@
+# Virtual environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Vector store (large, can be regenerated)
+vector_store/
+
+# Large PDF files (too big for git)
+pdfs/
+*.pdf
+*.epub
+
+# Internet Archive downloads
+internet_archive/
+
+# API keys and secrets
+.env
+start.sh
+
+# macOS
+.DS_Store
+
+# Raw HTML cache
+raw_html/

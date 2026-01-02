@@ -1,0 +1,31 @@
+# The Nuclear Genome
+Source: Online Open Genetics (Nickle & Barrette-Ng) - LibreTexts
+License: CC BY-SA 3.0
+
+## Key Definitions
+
+Nuclear Genome: The complete set of DNA within an organism's nucleus, measured as the C-value in base pairs or picograms.
+
+C-value: A measurement unit quantifying total nuclear DNA content in an organism.
+
+## Main Concepts
+
+### DNA Content and Organism Complexity
+
+There is a general correlation between the nuclear DNA content of a genome (i.e. the C-value) and the physical size or complexity of an organism.
+
+Comparative data across species:
+- Homo sapiens: 3,200 Mb DNA, ~25,000 genes
+- E. coli: 5 Mb DNA, ~3,200 genes
+- Drosophila melanogaster: 140 Mb DNA, ~13,000 genes
+- Saccharomyces cerevisiae: 12 Mb DNA, ~6,000 genes
+
+### The C-Value Paradox
+
+Notable exceptions challenge the size-complexity correlation. Wheat genomes contain approximately 17 billion bases (roughly 5-6 times human DNA content), while marbled lungfish contain approximately 133 billion bases (~45 times human genome size).
+
+Explanation: Much nuclear DNA doesn't encode genes. Non-coding DNA includes transposable elements and highly repetitive sequences that separate genes across larger genomes.
+
+### Additional Genomes
+
+Mitochondria and chloroplasts possess their own relatively small, circular genomes—structurally similar to prokaryotic DNA, supporting the endosymbiont hypothesis regarding organellar origins.
